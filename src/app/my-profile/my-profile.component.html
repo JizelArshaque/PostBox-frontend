@@ -1,0 +1,61 @@
+<div class="row mt-5">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="container border shadow mb-5">
+            
+            <form  *ngIf="!logs"> 
+                <div class="justify-content-center d-flex flex-column align-items-end"><button class="btn" (click)="edit()">Edit <i class="fa-solid fa-pencil"></i></button></div>
+                
+
+                <div class="p-5 ">
+                    <label class="justify-content-center d-flex flex-column align-items-center mb-5">
+                        
+                        <img [src]="profblank" alt="no Img" height="140"  width="150" style="border-radius: 50%;" >
+                    </label>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="floatingInput1" placeholder="name@example.com" [value]="dets.email"  readonly>
+                        <label for="floatingInput1">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput2" placeholder="username" [value]="dets.username"  readonly>
+                        <label for="floatingInput2">Username</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="floatingPassword1" placeholder="Password" [value]="upass" readonly>
+                        <label for="floatingPassword1">Password</label>
+                    </div>
+                    <div class="justify-content-center d-flex flex-column align-items-center mt-5">
+                        <button class="btn btn-danger" (click)="logout()">Logout</button>
+                    </div>
+                </div>
+                
+            </form>
+
+            <form class="form-group p-5" *ngIf="logs"  > 
+               
+
+                <label class="justify-content-center d-flex flex-column align-items-center mb-5">
+                    <input type="file" style="display: none;" (change)="getImage($event)">
+                    <img [src]="profblank" alt="no Img" height="140"  width="150" style="border-radius: 50%;" >
+                </label>
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" id="floatingInput11" placeholder="name@example.com" [value]="dets.email" [(ngModel)]="dets.email" name="demail" readonly>
+                    <label for="floatingInput11">Email address</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" id="floatingInput22" placeholder="username" [value]="dets.username" [(ngModel)]="dets.username" name="unamed">
+                    <label for="floatingInput22">Username</label>
+                </div>
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingPassword2" placeholder="Password" [value]="dets.password" [(ngModel)]="dets.password" name="upassed">
+                    <label for="floatingPassword2">Password</label>
+                </div>
+                <div class="justify-content-between d-flex mt-4">
+                    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+                    <button class="btn btn-success" type="button" (click)="update()">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>

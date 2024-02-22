@@ -1,0 +1,23 @@
+
+<div class="row">
+    <div class="col-4"></div>
+        <div class="log col-4  p-5">
+            <form class="rounded border shadow" style="height: 470px; width: 350px;" [formGroup]="loginForm" (ngSubmit)="login()">
+                <i class="fa-solid fa-user fa-2xl" style="margin-left: 145px; margin-top: 12%;"></i>
+                <h1 class="mt-2" style="margin-left: 110px;">Login</h1>
+                
+                <div class="form-floating mb-3 mt-5" style="width: 300px; margin-left: 6%;">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="uemil" formControlName="email">
+                    <label for="floatingInput">Email address</label>
+                </div>
+                <div class="form-floating mb-3" style="width: 300px; margin-left: 6%;">
+                    <input type="text" class="form-control" id="floatingInput" placeholder="Pasword" name="upass" formControlName="password">
+                    <label for="floatingInput">Password</label>
+                </div>
+                <button class="btn btn-primary" style="margin-left: 129px; margin-top: 35px;" type="submit">Login</button><br>
+                <a routerLink="/register" style="margin-left: 100px; text-decoration: none;">New user? Signup</a>
+            </form>
+        </div>
+        <div class="col-4"></div>
+</div>
+
