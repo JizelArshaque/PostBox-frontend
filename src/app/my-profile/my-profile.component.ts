@@ -22,16 +22,24 @@ export class MyProfileComponent implements OnInit{
   upass:string=''
   uemail:string=''
   dets:any={}
+  server='http://localhost:4321'
+  statu:boolean=false 
+  
 
   
 
   getImage(event:any){
-    let setfile = event.target.files[0]
+    const setfile:File = event.target.files[0]
+    this.dets['image']=setfile
+    const setfile1:File = event.target.files[0]
     let fr=new FileReader()
-    fr.readAsDataURL(setfile)
+    fr.readAsDataURL(setfile1)
     fr.onload=(event:any)=>{
     this.profblank=event.target.result
     }
+    this.statu=true
+
+
   }
 
   edit(){
@@ -51,8 +59,13 @@ export class MyProfileComponent implements OnInit{
     const email = sessionStorage.getItem('email')    
     this.api.getdetails(email).subscribe({
       next:(res:any)=>{
+        console.log(res);
+        
         this.dets=res
-        this.profblank=this.dets.image  
+        if(this.dets.image){
+          this.profblank=`${this.server}/uploads/${res.image}` 
+        }
+        
   
       },
       error:(err:any)=>{
@@ -63,10 +76,19 @@ export class MyProfileComponent implements OnInit{
   }
   update(){
     // console.log(this.dets);
-    this.dets['image']=this.profblank
+    // this.dets['image']=this.profblank
+
+    if(this.statu){
     console.log(this.dets);
+
+    const reqbod = new FormData()
+    reqbod.append('_id',this.dets._id)
+    reqbod.append('email',this.dets.email)
+    reqbod.append('username',this.dets.username)
+    reqbod.append('password',this.dets.password)
+    reqbod.append('image',this.dets.image)
     
-    this.api.userupdate(this.dets).subscribe({
+    this.api.userupdate(reqbod).subscribe({
       next:(res:any)=>{
         Swal.fire('updated Successfully!')
         this.logs = false
@@ -76,6 +98,19 @@ export class MyProfileComponent implements OnInit{
         Swal.fire('couldnt save atm!')
       }
     })
+
+    }else{
+      this.api.userupdate2(this.dets).subscribe({
+        next:(res:any)=>{
+          Swal.fire('Updated Successfuly!')
+        },
+        error:(err:any)=>{
+          Swal.fire('couldnt save atm!')
+        }
+      })
+    }
+
+    
     
   }
 

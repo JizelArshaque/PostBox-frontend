@@ -9,6 +9,8 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { SendmailComponent } from './sendmail/sendmail.component';
+import { SentComponent } from './sent/sent.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { HeaderComponent } from './header/header.component';
     UserLoginComponent,
     AllMailComponent,
     MyProfileComponent,
-    HeaderComponent
+    HeaderComponent,
+    SendmailComponent,
+    SentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+
+    <div class="container" style="background-color: antiquewhite;">
+        <div class="d-flex flex-column">
+            <form [formGroup]="mailform" class="d-flex flex-column">
+                To:<input type="text" placeholder="abc@postbox.com" formControlName="to" name="=tos">
+                Subject: <input type="text" placeholder="Meeting Request,Job Application..." formControlName="subject" name="subjs">
+                your message: <textarea name="" id="" cols="30" rows="10" formControlName="message" name="msg"></textarea>
+                <label>
+                    <input type="file"  (change)="image($event)">
+                    <h5></h5>
+                    
+                </label>
+               
+                <div class="d-flex"><h5>file.png</h5><button class="btn">X</button> </div>
+
+                <button (click)="send()">Send</button>
+        
+            </form>
+        </div>
+    </div>

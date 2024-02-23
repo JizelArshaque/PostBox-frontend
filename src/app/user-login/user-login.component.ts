@@ -25,12 +25,9 @@ export class UserLoginComponent {
 
       this.api.loginApi(user).subscribe({
         next:(res:any)=>{
-          
-          
-          sessionStorage.setItem('token',res.token)
-          sessionStorage.setItem('username',res.existingUser.username)
           sessionStorage.setItem('email',res.existingUser.email)
-
+          sessionStorage.setItem('username',res.existingUser.username)
+          sessionStorage.setItem('token',res.token)
           Swal.fire({
             title: 'login Successful!',
             icon: "success"

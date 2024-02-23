@@ -5,8 +5,6 @@
             
             <form  *ngIf="!logs"> 
                 <div class="justify-content-center d-flex flex-column align-items-end"><button class="btn" (click)="edit()">Edit <i class="fa-solid fa-pencil"></i></button></div>
-                
-
                 <div class="p-5 ">
                     <label class="justify-content-center d-flex flex-column align-items-center mb-5">
                         
@@ -39,7 +37,7 @@
                     <img [src]="profblank" alt="no Img" height="140"  width="150" style="border-radius: 50%;" >
                 </label>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="floatingInput11" placeholder="name@example.com" [value]="dets.email" [(ngModel)]="dets.email" name="demail" readonly>
+                    <input type="email" class="form-control" id="floatingInput11" placeholder="name@example.com" [value]="dets.email" [(ngModel)]="dets.email" name="demail" >
                     <label for="floatingInput11">Email address</label>
                 </div>
                 <div class="form-floating mb-3">

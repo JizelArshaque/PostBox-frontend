@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -10,6 +10,8 @@ export class ApiService {
   
 
   server='http://localhost:4321'
+
+  
 
   // user registration
   registerUserApi(user:any){
@@ -26,9 +28,36 @@ export class ApiService {
     return this.http.get(`${this.server}/get/details/${user}`)
   }
 
-  // user updateion
+  // user updateion with image
   userupdate(user:any){
     return this.http.put(`${this.server}/update/user`,user)
+  }
 
+  // without image updation
+  userupdate2(user:any){
+    return this.http.put(`${this.server}/update/user2`,user)
+  }
+
+  addTokenToHeaders(){
+    let headers = new HttpHeaders()
+    const token = sessionStorage.getItem("token")
+    if(token){
+      headers = headers.append('Authorization',`Bearer ${token}`)
+    }
+    return {headers}
+  }
+
+  // regular email w image
+  mail1(details:any){
+    return this.http.post(`${this.server}/send/mail1`,details,this.addTokenToHeaders())
+  }
+  // regular email
+  mail2(details:any){
+    return this.http.post(`${this.server}/send/mail2`,details,this.addTokenToHeaders())
+  }
+
+  // getting sent mail
+  sent(from:any){
+    return this.http.get(`${this.server}/sentmail/${from}`)
   }
 }
