@@ -11,6 +11,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
 import { SendmailComponent } from './sendmail/sendmail.component';
 import { SentComponent } from './sent/sent.component';
+import { VmailComponent } from './vmail/vmail.component';
+import { ImportantMailComponent } from './important-mail/important-mail.component';
+import { TrashMailComponent } from './trash-mail/trash-mail.component';
+import { VImpmailComponent } from './v-impmail/v-impmail.component';
 
 
 @NgModule({
@@ -22,7 +26,11 @@ import { SentComponent } from './sent/sent.component';
     MyProfileComponent,
     HeaderComponent,
     SendmailComponent,
-    SentComponent
+    SentComponent,
+    VmailComponent,
+    ImportantMailComponent,
+    TrashMailComponent,
+    VImpmailComponent
   ],
   imports: [
     BrowserModule,

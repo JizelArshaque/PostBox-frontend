@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApiService } from '../service/api.service';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit{
+
+  constructor(private router:Router,private api:ApiService){}
   ngOnInit(): void {
     this.log()
   }
@@ -18,6 +22,16 @@ export class HeaderComponent implements OnInit{
     }else{
       this.islog=false
     }
+  }
+
+
+
+  logout(){
+    sessionStorage.removeItem('token')
+    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('email')
+    this.router.navigateByUrl('')
+
   }
 
 }

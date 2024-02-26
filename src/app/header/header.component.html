@@ -7,7 +7,7 @@
     
 
       <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <!-- <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           <li class="nav-item d-flex">
             <a class="nav-link " style="margin-left: 350px; color: silver;" routerLink="/allmail"><strong>All Mail</strong></a>
             <a class="nav-link" style="color: silver; margin-left: 30px;">|</a>
@@ -15,10 +15,33 @@
             <a class="nav-link" style="color: silver; margin-left: 30px;">|</a>
             <a class="nav-link " style="color: silver; margin-left: 20px;" routerLink="/"><strong>Important</strong></a>
           </li>
-        </ul>
+        </ul> -->
         <form class="d-flex">
           <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
-          <button *ngIf="islog" class="btn" routerLink="/myprofile"><span style="color: silver;">Profile</span></button>
+
+
+          <!-- <button *ngIf="islog" class="btn" routerLink="/myprofile">
+            <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+            <span style="color: silver;">Profile</span>
+          </button> -->
+
+          <div class="dropdown" *ngIf="islog">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                <span class="d-none d-sm-inline mx-1">loser</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                <li><a class="dropdown-item" routerLink="/sendmail">New mail</a></li>
+                <li><a class="dropdown-item" routerLink="/myprofile" >Profile</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+        </div>
+
+
+
           <button *ngIf="!(islog)" class="btn"><span style="color: silver;">Login</span></button>
         </form>
       <!-- </div> -->

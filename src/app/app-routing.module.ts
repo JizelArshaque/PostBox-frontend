@@ -6,6 +6,10 @@ import { MyProfileComponent } from './my-profile/my-profile.component';
 import { AllMailComponent } from './all-mail/all-mail.component';
 import { SendmailComponent } from './sendmail/sendmail.component';
 import { SentComponent } from './sent/sent.component';
+import { VmailComponent } from './vmail/vmail.component';
+import { TrashMailComponent } from './trash-mail/trash-mail.component';
+import { ImportantMailComponent } from './important-mail/important-mail.component';
+import { VImpmailComponent } from './v-impmail/v-impmail.component';
 
 const routes: Routes = [
   {path:'',component:UserLoginComponent},
@@ -13,7 +17,11 @@ const routes: Routes = [
   {path:'myprofile',component:MyProfileComponent},
   {path:'allmail',component:AllMailComponent},
   {path:'sendmail',component:SendmailComponent},
-  {path:'sent',component:SentComponent}
+  {path:'sent',component:SentComponent},
+  {path:'viewmail/:id',component:VmailComponent},
+  {path:'trash',component:TrashMailComponent},
+  {path:'important',component:ImportantMailComponent},
+  {path:'important/single/:id',component:VImpmailComponent},
 ];
 
 @NgModule({

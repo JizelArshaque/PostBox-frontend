@@ -34,26 +34,38 @@
             </div>
         </div>
         <div class="col py-3">
-            <div style="height: 15vh;" class="justify-content-center d-flex flex-column align-items-center">
-                <h1><strong>All Mail</strong></h1>
+            <!-- <div style="height: 15vh;" class="justify-content-center d-flex flex-column align-items-center">
+                <h1><strong>ss</strong></h1>
 
-            </div>
-            <hr>
-            <div class="body1">
-                <ul class="email-list">
-                    <li class="email-item" *ngFor="let mail of allMail">
-                      <div class="email-sender">To:{{mail.to}}</div>
-                      <div class="email-subject">{{mail.subject}}</div>
-                      <div class=" d-flex justify-content-between">
-                        <div class="email-body">{{mail.message.slice(0,15)}}...</div>
-                        <div class="text-secondary">{{mail.date}}</div>
+            </div> -->
+            <!-- <hr> -->
+            <div >
+                <div>
+                    <div class=" d-flex justify-content-between">
+                        <h5 class="text-secondary">{{mail.from}}</h5>
+                        <div>
+                            <button class="btn" (click)="delete(mail._id)"><span style="color: gold;"><strong>mark as not Important</strong></span><i class="fa-regular fa-star ms-2" style="color: gold;"></i></button>
+                            <!-- <button class="btn" ><i class="fa-solid fa-trash-can ms-2" style="color: red;"></i></button> -->
+                        </div>
+                       
                     </div>
-                    </li>
+                    <p style="color: silver;">{{mail.date}}</p>
+                    <hr>
+                    <h5><span class="text-secondary" (click)="delete(mail._id)">Subject: </span>{{mail.subject}}</h5>
+                    <p><span class="text-secondary">Message: <br></span>{{mail.message}}</p>
+                    <div *ngIf="(pblank.length != 0)">
+                        
+                        <img  [src]="pblank" height="370px" width="470px">
+                    </div>
                     
-                  </ul>
+                </div>
+                
+                
             </div>
+           
 
 
         </div>
+        
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../service/api.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -9,7 +9,12 @@ import Swal from 'sweetalert2';
   templateUrl: './user-login.component.html',
   styleUrls: ['./user-login.component.css']
 })
-export class UserLoginComponent {
+export class UserLoginComponent implements OnInit{
+  ngOnInit(): void {
+    if(sessionStorage.getItem('token')){
+      this.router.navigateByUrl('/allmail')
+    }
+  }
   constructor(private api:ApiService,private fb:FormBuilder,private router:Router){}
 
   loginForm = this.fb.group({

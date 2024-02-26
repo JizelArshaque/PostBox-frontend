@@ -52,6 +52,7 @@ export class MyProfileComponent implements OnInit{
   logout(){
     sessionStorage.removeItem('token')
     sessionStorage.removeItem('username')
+    sessionStorage.removeItem('email')
     this.router.navigateByUrl('')
 
   }
@@ -60,11 +61,18 @@ export class MyProfileComponent implements OnInit{
     this.api.getdetails(email).subscribe({
       next:(res:any)=>{
         console.log(res);
-        
         this.dets=res
-        if(this.dets.image){
-          this.profblank=`${this.server}/uploads/${res.image}` 
-        }
+        // console.log(this.dets);
+        this.profblank=`${this.server}/uploads/${this.dets.image}`
+        
+        
+        // if(this.dets.image){
+        //   this.profblank=`${this.server}/uploads/${this.dets.image}` 
+        //   console.log(this.dets.image);
+          
+        // }else{
+        //   this.profblank='./assets/blankprofile.jpg'
+        // }
         
   
       },

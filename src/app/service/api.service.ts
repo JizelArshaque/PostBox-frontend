@@ -58,6 +58,51 @@ export class ApiService {
 
   // getting sent mail
   sent(from:any){
-    return this.http.get(`${this.server}/sentmail/${from}`)
+    return this.http.get(`${this.server}/sentmail/${from}`,this.addTokenToHeaders())
   }
+
+  // get all mail 
+  allmailget(id:any){
+    return this.http.get(`${this.server}/all/mail/${id}`,this.addTokenToHeaders())
+  }
+
+  getSingleMail(id:any){
+    return this.http.get(`${this.server}/get/mail/${id}`,this.addTokenToHeaders())
+  }
+
+  addToimp(message:any){
+    return this.http.post(`${this.server}/add/important`,message,this.addTokenToHeaders())
+  }
+
+  getImp(){
+    return this.http.get(`${this.server}/get/imp`,this.addTokenToHeaders())
+  }
+
+  getsingleImp(id:any){
+    return this.http.get(`${this.server}/getimp/single/${id}`)
+
+  }
+
+  removeImp(id:any){
+    return this.http.delete(`${this.server}/delete/imp/${id}`)
+  }
+
+  delete(id:any){
+    return this.http.delete(`${this.server}/delete/mail/${id}`)
+  }
+
+  addToTrash(message:any){
+    return this.http.post(`${this.server}/add/trash`,message,this.addTokenToHeaders())
+  }
+
+  getTrash(){
+    return this.http.get(`${this.server}/get/trash`,this.addTokenToHeaders())
+  }
+
+  removetrash(id:any){
+    return this.http.delete(`${this.server}/delete/trash/${id}`)
+  }
+
+
+
 }

@@ -2,13 +2,14 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <div class="container border shadow mb-5">
+            <!-- VEIWING PAGE -->
             
             <form  *ngIf="!logs"> 
                 <div class="justify-content-center d-flex flex-column align-items-end"><button class="btn" (click)="edit()">Edit <i class="fa-solid fa-pencil"></i></button></div>
                 <div class="p-5 ">
                     <label class="justify-content-center d-flex flex-column align-items-center mb-5">
                         
-                        <img [src]="profblank" alt="no Img" height="140"  width="150" style="border-radius: 50%;" >
+                        <img [src]="profblank" alt="No Img" height="140"  width="150" style="border-radius: 50%;" >
                     </label>
                     <div class="form-floating mb-3">
                         <input type="email" class="form-control" id="floatingInput1" placeholder="name@example.com" [value]="dets.email"  readonly>
@@ -29,9 +30,9 @@
                 
             </form>
 
-            <form class="form-group p-5" *ngIf="logs"  > 
-               
+            <!--EDIt PAGE -->
 
+            <form class="form-group p-5" *ngIf="logs"  > 
                 <label class="justify-content-center d-flex flex-column align-items-center mb-5">
                     <input type="file" style="display: none;" (change)="getImage($event)">
                     <img [src]="profblank" alt="no Img" height="140"  width="150" style="border-radius: 50%;" >
