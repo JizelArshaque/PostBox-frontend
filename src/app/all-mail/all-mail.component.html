@@ -40,6 +40,7 @@
                     <li class="email-item" *ngFor="let mail of allMail" >
                       <div routerLink="/viewmail/{{mail._id}}">
                           <div class="email-sender">from:{{mail.from}}</div>
+                          <div class="class text-secondary">To:{{mail.to}}</div>
                           <div class="email-subject">{{mail.subject}}</div>
                           <div class=" d-flex justify-content-between">
                             <div class="email-body">{{mail.message.slice(0,15)}}...</div>
@@ -49,7 +50,9 @@
                     </li>
                     
                   </ul>
+                  
             </div>
+            <button routerLink="/sendmail" class="fixed-button">Compose New Mail</button>
 
 
         </div>

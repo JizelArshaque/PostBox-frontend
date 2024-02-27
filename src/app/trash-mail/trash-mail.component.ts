@@ -33,6 +33,23 @@ export class TrashMailComponent implements OnInit{
     console.log(mail);
     if(mail.image){
 
+      this.api.mail2(mail).subscribe({
+        next:(res:any)=>{
+          this.api.removetrash(mail._id).subscribe({
+            next:(res:any)=>{
+              Swal.fire('Restored!')
+            },
+            error:(err:any)=>{
+              Swal.fire(err.error)
+            }
+          })
+          
+        },
+        error:(err:any)=>{
+          Swal.fire('Couldnt restore!')
+        }
+      })
+      
     }else{
       this.api.mail2(mail).subscribe({
         next:(res:any)=>{

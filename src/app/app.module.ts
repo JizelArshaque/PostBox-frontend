@@ -15,6 +15,7 @@ import { VmailComponent } from './vmail/vmail.component';
 import { ImportantMailComponent } from './important-mail/important-mail.component';
 import { TrashMailComponent } from './trash-mail/trash-mail.component';
 import { VImpmailComponent } from './v-impmail/v-impmail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { VImpmailComponent } from './v-impmail/v-impmail.component';
     VmailComponent,
     ImportantMailComponent,
     TrashMailComponent,
-    VImpmailComponent
+    VImpmailComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

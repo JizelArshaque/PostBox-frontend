@@ -10,6 +10,7 @@ import { VmailComponent } from './vmail/vmail.component';
 import { TrashMailComponent } from './trash-mail/trash-mail.component';
 import { ImportantMailComponent } from './important-mail/important-mail.component';
 import { VImpmailComponent } from './v-impmail/v-impmail.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path:'',component:UserLoginComponent},
@@ -22,6 +23,8 @@ const routes: Routes = [
   {path:'trash',component:TrashMailComponent},
   {path:'important',component:ImportantMailComponent},
   {path:'important/single/:id',component:VImpmailComponent},
+  {path:'**',component:PageNotFoundComponent},
+
 ];
 
 @NgModule({
