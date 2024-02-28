@@ -30,9 +30,9 @@ body {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
+    /* border: 1px solid #ccc; */
+    /* border-radius: 5px; */
+    /* box-sizing: border-box; */
   }
   
   button {

@@ -34,7 +34,14 @@ export class HeaderComponent implements OnInit{
     this.api.getdetails(email).subscribe({
       next:(res:any)=>{
         this.dets=res
-        this.profblank=`${this.server}/uploads/${this.dets.image}`
+
+        if(this.dets.image){
+          this.profblank=`${this.server}/uploads/${this.dets.image}` 
+          console.log(this.dets.image);
+          
+        }else{
+          this.profblank='./assets/blankprofile.jpg'
+        }
 
       },
       error:(err:any)=>{
@@ -49,6 +56,7 @@ export class HeaderComponent implements OnInit{
     sessionStorage.removeItem('username')
     sessionStorage.removeItem('email')
     this.router.navigateByUrl('')
+    
 
   }
 

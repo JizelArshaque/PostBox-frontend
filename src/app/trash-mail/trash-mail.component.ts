@@ -37,6 +37,7 @@ export class TrashMailComponent implements OnInit{
         next:(res:any)=>{
           this.api.removetrash(mail._id).subscribe({
             next:(res:any)=>{
+              this.getTrash()
               Swal.fire('Restored!')
             },
             error:(err:any)=>{
@@ -56,6 +57,7 @@ export class TrashMailComponent implements OnInit{
           this.api.removetrash(mail._id).subscribe({
             next:(res:any)=>{
               Swal.fire('Restored!')
+              this.getTrash()
             },
             error:(err:any)=>{
               Swal.fire(err.error)
@@ -76,6 +78,7 @@ export class TrashMailComponent implements OnInit{
     this.api.removetrash(id).subscribe({
       next:(res:any)=>{
         Swal.fire('Deleted !')
+        this.getTrash()
       },
       error:(err:any)=>{
         Swal.fire(err.error)

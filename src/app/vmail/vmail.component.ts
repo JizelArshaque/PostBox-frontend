@@ -55,13 +55,13 @@ server='http://localhost:4321'
     this.api.delete(message._id).subscribe({
       next:(res:any)=>{
         this.api.addToTrash(message).subscribe({
-      next:(res:any)=>{
-        Swal.fire(res)
-      },
-      error:(err:any)=>{
-        Swal.fire(err.error)
-      }
-    })
+          next:(res:any)=>{
+            Swal.fire(res)
+          },
+          error:(err:any)=>{
+            Swal.fire(err.error)
+          }
+        })
             
           },
           error:(err:any)=>{

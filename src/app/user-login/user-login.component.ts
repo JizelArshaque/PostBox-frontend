@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 })
 export class UserLoginComponent implements OnInit{
   ngOnInit(): void {
+    
     if(sessionStorage.getItem('token')){
       this.router.navigateByUrl('/allmail')
     }
@@ -38,7 +39,7 @@ export class UserLoginComponent implements OnInit{
             icon: "success"
           });
           
-          
+          window.location.reload()
           this.router.navigateByUrl('/allmail')
         },
         error:(err:any)=>{

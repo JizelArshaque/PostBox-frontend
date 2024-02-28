@@ -16,6 +16,9 @@ import { ImportantMailComponent } from './important-mail/important-mail.componen
 import { TrashMailComponent } from './trash-mail/trash-mail.component';
 import { VImpmailComponent } from './v-impmail/v-impmail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { SearchPipe } from './search.pipe';
+import { InboxComponent } from './inbox/inbox.component';
 
 
 @NgModule({
@@ -32,14 +35,17 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ImportantMailComponent,
     TrashMailComponent,
     VImpmailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SearchPipe,
+    InboxComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

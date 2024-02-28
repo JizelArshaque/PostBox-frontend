@@ -14,6 +14,9 @@
                                 <a routerLink="/allmail" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: silver;">All Mail</span> <i class="fa-solid fa-envelope ms-2" ></i> </a>
                             </li>
                             <li>
+                                <a routerLink="/inbox" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: silver;">Inbox</span> <i class="fa-solid fa-inbox ms-2" style="color: green;"></i> </a>
+                            </li>
+                            <li>
                                 <a routerLink="/sent" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: silver;">Sent</span> <i class="fa-regular fa-paper-plane ms-2" ></i> </a>
                             </li>
                             <li>
@@ -32,12 +35,13 @@
         <div class="col py-3">
             <div style="height: 15vh;" class="justify-content-center d-flex flex-column align-items-center">
                 <h1><strong>All Mail</strong></h1>
+                
 
             </div>
             <hr>
-            <div class="body1">
+            <div class="body1" *ngIf="!(allMail==0)">
                 <ul class="email-list">
-                    <li class="email-item" *ngFor="let mail of allMail" >
+                    <li class="email-item" *ngFor="let mail of allMail.reverse() | paginate: { itemsPerPage: 5, currentPage: p }" >
                       <div routerLink="/viewmail/{{mail._id}}">
                           <div class="email-sender">from:{{mail.from}}</div>
                           <div class="class text-secondary">To:{{mail.to}}</div>
@@ -52,9 +56,15 @@
                   </ul>
                   
             </div>
+            <div *ngIf="(allMail==0)" class="justify-content-center align-items-center d-flex flex-column">
+                <h3>Nothing too see here</h3>
+                
+            </div>
             <button routerLink="/sendmail" class="fixed-button">Compose New Mail</button>
 
 
         </div>
     </div>
 </div>
+
+<div class="justify-content-center d-flex"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>

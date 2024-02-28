@@ -54,6 +54,7 @@ export class MyProfileComponent implements OnInit{
     sessionStorage.removeItem('username')
     sessionStorage.removeItem('email')
     this.router.navigateByUrl('')
+    window.location.reload()
 
   }
   getdetails(){
@@ -63,16 +64,16 @@ export class MyProfileComponent implements OnInit{
         console.log(res);
         this.dets=res
         // console.log(this.dets);
-        this.profblank=`${this.server}/uploads/${this.dets.image}`
+        // this.profblank=`${this.server}/uploads/${this.dets.image}`
         
         
-        // if(this.dets.image){
-        //   this.profblank=`${this.server}/uploads/${this.dets.image}` 
-        //   console.log(this.dets.image);
+        if(this.dets.image){
+          this.profblank=`${this.server}/uploads/${this.dets.image}` 
+          console.log(this.dets.image);
           
-        // }else{
-        //   this.profblank='./assets/blankprofile.jpg'
-        // }
+        }else{
+          this.profblank='./assets/blankprofile.jpg'
+        }
         
   
       },

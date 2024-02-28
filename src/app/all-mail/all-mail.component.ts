@@ -16,6 +16,7 @@ export class AllMailComponent implements OnInit{
 
   constructor(private api:ApiService){}
   allMail:any=[]
+  p:number=1
 
   getallmail(frm:any){
     this.api.allmailget(frm).subscribe({

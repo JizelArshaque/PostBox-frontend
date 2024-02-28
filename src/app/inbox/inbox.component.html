@@ -20,17 +20,13 @@
                                 <a routerLink="/sent" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: silver;">Sent</span> <i class="fa-regular fa-paper-plane ms-2" ></i> </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: silver;">Important</span><i class="fa-regular fa-star ms-2" style="color: gold;"></i> </a>
+                                <a routerLink="/important" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: silver;">Important</span><i class="fa-regular fa-star ms-2" style="color: gold;"></i> </a>
                             </li>
                             <li>
-                                <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: silver;">Trash</span> <i class="fa-solid fa-trash-can ms-2" style="color: red;"></i> </a>
+                                <a routerLink="/trash" class="nav-link px-0"> <span class="d-none d-sm-inline" style="color: silver;">Trash</span> <i class="fa-solid fa-trash-can ms-2" style="color: red;"></i> </a>
                             </li>
                         </ul>
-                    </li>
-                    
-                   
-                    
-                    
+                    </li> 
                 </ul>
                 <hr>
                 
@@ -38,29 +34,36 @@
         </div>
         <div class="col py-3">
             <div style="height: 15vh;" class="justify-content-center d-flex flex-column align-items-center">
-                <h1><strong>Sent</strong></h1>
+                <h1><strong>Inbox</strong></h1>
 
             </div>
             <hr>
             <div class="body1" *ngIf="!(allMail.length == 0)">
                 <ul class="email-list">
-                    <li class="email-item" *ngFor="let mail of allMail.reverse()" routerLink="/viewmail/{{mail._id}}">
-                      <div class="email-sender">To:{{mail.to}}</div>
-                      <div class="email-subject">{{mail.subject}}</div>
-                      <div class=" d-flex justify-content-between">
-                        <div class="email-body">{{mail.message.slice(0,15)}}...</div>
-                        <div class="text-secondary">{{mail.date}}</div>
-                    </div>
+                    <li class="email-item" *ngFor="let mail of allMail.reverse() | paginate: { itemsPerPage: 5, currentPage: p }" >
+                      <div routerLink="/viewmail/{{mail._id}}">
+                          <div class="email-sender">from:{{mail.from}}</div>
+                          <!-- <div class="class text-secondary">To:{{mail.to}}</div> -->
+                          <div class="email-subject">{{mail.subject}}</div>
+                          <div class=" d-flex justify-content-between">
+                            <div class="email-body">{{mail.message.slice(0,15)}}...</div>
+                            <div class="text-secondary">{{mail.date}}</div>
+                        </div>
+                      </div>
                     </li>
                     
                   </ul>
+                  
             </div>
             <div *ngIf="(allMail==0)" class="justify-content-center align-items-center d-flex flex-column">
                 <h3>Nothing too see here</h3>
                 
             </div>
+            <button routerLink="/sendmail" class="fixed-button">Compose New Mail</button>
 
 
         </div>
     </div>
 </div>
+
+<div class="justify-content-center d-flex"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>

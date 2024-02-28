@@ -103,6 +103,10 @@ export class ApiService {
     return this.http.delete(`${this.server}/delete/trash/${id}`)
   }
 
+  getInbox(id:any){
+    return this.http.get(`${this.server}/inboxMail/${id}`,this.addTokenToHeaders())
+  }
+
 
 
 }

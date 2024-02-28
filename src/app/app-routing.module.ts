@@ -11,18 +11,21 @@ import { TrashMailComponent } from './trash-mail/trash-mail.component';
 import { ImportantMailComponent } from './important-mail/important-mail.component';
 import { VImpmailComponent } from './v-impmail/v-impmail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { authGuardGuard } from './auth-guard.guard';
+import { InboxComponent } from './inbox/inbox.component';
 
 const routes: Routes = [
   {path:'',component:UserLoginComponent},
   {path:'register',component:UserResgisterComponent},
-  {path:'myprofile',component:MyProfileComponent},
-  {path:'allmail',component:AllMailComponent},
-  {path:'sendmail',component:SendmailComponent},
-  {path:'sent',component:SentComponent},
+  {path:'myprofile',component:MyProfileComponent,canActivate:[authGuardGuard]},
+  {path:'allmail',component:AllMailComponent,canActivate:[authGuardGuard]},
+  {path:'sendmail',component:SendmailComponent,canActivate:[authGuardGuard]},
+  {path:'sent',component:SentComponent,canActivate:[authGuardGuard]},
   {path:'viewmail/:id',component:VmailComponent},
-  {path:'trash',component:TrashMailComponent},
+  {path:'trash',component:TrashMailComponent,canActivate:[authGuardGuard]},
   {path:'important',component:ImportantMailComponent},
   {path:'important/single/:id',component:VImpmailComponent},
+  {path:'inbox',component:InboxComponent},
   {path:'**',component:PageNotFoundComponent},
 
 ];
