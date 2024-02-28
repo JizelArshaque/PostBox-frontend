@@ -9,7 +9,8 @@ export class ApiService {
   constructor( private http:HttpClient) { }
   
 
-  server='http://localhost:4321'
+  // server='http://localhost:4321'
+  server='https://postbox-server.onrender.com'
 
   
 

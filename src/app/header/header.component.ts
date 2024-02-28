@@ -18,7 +18,8 @@ export class HeaderComponent implements OnInit{
   islog:boolean=false
   profblank:String='./assets/blankprofile.jpg'
   dets:any={}
-  server='http://localhost:4321'
+  // server='http://localhost:4321'
+  server='https://postbox-server.onrender.com'
 
   log(){
     const stat=sessionStorage.getItem('token')

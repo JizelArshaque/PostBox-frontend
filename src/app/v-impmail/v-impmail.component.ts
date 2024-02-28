@@ -19,7 +19,8 @@ export class VImpmailComponent implements OnInit{
   constructor(private api:ApiService,private route:ActivatedRoute,private router:Router){}
 
   pblank:string=''
-  server='http://localhost:4321'
+  // server='http://localhost:4321'
+  server='https://postbox-server.onrender.com'
 
   mail:any={}
   getmail(id:any){

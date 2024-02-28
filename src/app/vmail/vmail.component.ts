@@ -19,7 +19,8 @@ export class VmailComponent implements OnInit{
   constructor(private route:ActivatedRoute,private api:ApiService){}
 mail:any=[]
 pblank:string=''
-server='http://localhost:4321'
+// server='http://localhost:4321'
+server='https://postbox-server.onrender.com'
 
   getmail(id:any){
     this.api.getSingleMail(id).subscribe({

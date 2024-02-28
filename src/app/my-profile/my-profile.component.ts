@@ -22,7 +22,8 @@ export class MyProfileComponent implements OnInit{
   upass:string=''
   uemail:string=''
   dets:any={}
-  server='http://localhost:4321'
+  // server='http://localhost:4321'
+  server='https://postbox-server.onrender.com'
   statu:boolean=false 
   
 
