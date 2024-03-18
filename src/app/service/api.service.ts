@@ -109,5 +109,9 @@ export class ApiService {
   }
 
 
+  toUpdateStats(mail:any){
+    return this.http.put(`${this.server}/update/stats`,mail)
+  }
+
 
 }

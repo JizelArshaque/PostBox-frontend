@@ -36,6 +36,7 @@ export class SendmailComponent {
               { timeZone: 'Asia/Kolkata' });
           this.mail['date']=date
           this.mail['image']=this.imageF.image
+          this.mail['stat']="new"
           const reqbody= new FormData()
           reqbody.append('from',this.mail.from)
           reqbody.append('to',this.mail.to)
@@ -43,6 +44,7 @@ export class SendmailComponent {
           reqbody.append('message',this.mail.message)
           reqbody.append('date',this.mail.date)
           reqbody.append('image',this.mail.image)
+          reqbody.append('stat',this.mail.stat)
           this.api.mail1(reqbody).subscribe({
           next:(res:any)=>{
             Swal.fire('Mail Sent!')
@@ -60,7 +62,8 @@ export class SendmailComponent {
         let d = new Date() 
         let date = d.toLocaleString(undefined,
           { timeZone: 'Asia/Kolkata' });
-        const mail = {from ,to,subject, message, date }
+        const stat = "new"
+        const mail = {from ,to,subject, message, date,stat }
           
         this.api.mail2(mail).subscribe({
           next:(res:any)=>{

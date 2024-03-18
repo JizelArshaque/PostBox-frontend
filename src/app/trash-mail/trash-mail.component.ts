@@ -20,7 +20,7 @@ export class TrashMailComponent implements OnInit{
     this.api.getTrash().subscribe({
       next:(res:any)=>{
         this.allMail=res
-        console.log(res);
+        // console.log(res);
         
       },
       error:(err:any)=>{

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../service/api.service';
 import Swal from 'sweetalert2';
 
@@ -16,7 +16,7 @@ export class VmailComponent implements OnInit{
     })
     
   }
-  constructor(private route:ActivatedRoute,private api:ApiService){}
+  constructor(private route:ActivatedRoute,private api:ApiService,private router:Router){}
 mail:any=[]
 pblank:string=''
 // server='http://localhost:4321'
@@ -26,9 +26,24 @@ server='https://postbox-server.onrender.com'
     this.api.getSingleMail(id).subscribe({
       next:(res:any)=>{
         this.mail=res[0]
-        console.log(this.mail);
+        // console.log(this.mail);
         if(this.mail.image){
           this.pblank = `${this.server}/uploads/${this.mail.image}`
+        }
+        if(this.mail.stat == "new"){
+          this.mail.stat = "old"
+
+          
+          this.api.toUpdateStats(this.mail).subscribe({
+            next:(res:any)=>{
+              console.log('updated');
+              
+            },
+            error:(err:any)=>{
+              console.log(err.error);
+              
+            }
+          })
         }
         
       },
@@ -58,6 +73,7 @@ server='https://postbox-server.onrender.com'
         this.api.addToTrash(message).subscribe({
           next:(res:any)=>{
             Swal.fire(res)
+            this.router.navigateByUrl('')
           },
           error:(err:any)=>{
             Swal.fire(err.error)
